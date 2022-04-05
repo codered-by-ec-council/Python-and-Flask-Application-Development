@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from 'form_helpers.html' import render_field %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <span class="title">
+            New Note
+        </span>
+        <br/>
+        <br/>
+        <form class="box" method="POST" action="{{ url_for('create_note')}}">
+            {{ form.hidden_tag() }}
+            <div class="field">
+                <label class="label">{{form.title.label}}</label>
+                {{render_field(form.title, class="input", placeholder="Enter Title")}}
+            </div>
+            <div class="field">
+                <label class="label">{{form.content.label}}</label>
+                {{render_field(form.content, class="textarea", placeholder="Enter Title")}}
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}
